@@ -284,7 +284,7 @@ PickerPopup* PickerPopup::create(EditorUI* ui, bridge::Selection sel) {
     return nullptr;
 }
 
-static ccColor3B c3(deco::RGB c) { return { (GLubyte)c.r, (GLubyte)c.g, (GLubyte)c.b }; }
+static ccColor3B c3(deco::Rgb c) { return { (GLubyte)c.r, (GLubyte)c.g, (GLubyte)c.b }; }
 
 static CCNode* makeThumb(deco::Template const& t) {
     auto node = CCNode::create();
@@ -633,3 +633,4 @@ void openDecorator(EditorUI* ui) {
     }
     if (auto p = PickerPopup::create(ui, std::move(sel))) p->show();
 }
+
