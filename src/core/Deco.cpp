@@ -498,7 +498,7 @@ struct Gen {
 
     void scatter(Feature const& f) {
         Frame id = { 1, 0, 0, 1, 0 };
-        // candidate empty cells near the structure
+        // candidate empty cells touching the structure
         std::vector<std::pair<int,int>> cand;
         std::unordered_set<long long> seen;
         for (auto& cl : cells) {
@@ -506,9 +506,9 @@ struct Gen {
                 int x = cl.first + dx, y = cl.second + dy;
                 if (has(x, y) || g.hazard(x, y)) continue;
                 // keep one empty cell between the structure and floating pieces
-                bool near = false;
-                for (int a = -1; a <= 1 && !near; a++) for (int b = -1; b <= 1; b++) if (has(x + a, y + b)) { near = true; break; }
-                if (near) continue;
+                bool touching = false;
+                for (int a = -1; a <= 1 && !touching; a++) for (int b = -1; b <= 1; b++) if (has(x + a, y + b)) { touching = true; break; }
+                if (touching) continue;
                 if (o.mirror) { int mx = cxSum - x; if (x > mx) continue; }
                 if (seen.insert(key(x, y)).second) cand.push_back({ x, y });
             }
