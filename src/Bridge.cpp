@@ -47,7 +47,7 @@ void usedChannels(LevelEditorLayer* lel, std::set<int>& used) {
     }
 }
 
-void setChannel(LevelEditorLayer* lel, int ch, deco::RGB c, bool blend) {
+void setChannel(LevelEditorLayer* lel, int ch, deco::Rgb c, bool blend) {
     ccColor3B col = { (GLubyte)c.r, (GLubyte)c.g, (GLubyte)c.b };
     GJEffectManager* ems[2] = { settingsEM(lel), lel->m_effectManager };
     for (int k = 0; k < 2; k++) {
