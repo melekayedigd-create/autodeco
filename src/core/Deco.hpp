@@ -11,8 +11,8 @@ namespace deco {
 constexpr int ZB4 = -3, ZB3 = -1, ZB2 = 1, ZB1 = 3, ZT1 = 5, ZT2 = 7, ZT3 = 9;
 constexpr float CELL = 30.f;
 
-struct RGB { int r = 255, g = 255, b = 255; };
-struct Slot { RGB c; bool blend = false; std::string name; int fixed = 0; /* >0: always use this GD colour channel */ };
+struct Rgb { int r = 255, g = 255, b = 255; };
+struct Slot { Rgb c; bool blend = false; std::string name; int fixed = 0; /* >0: always use this GD colour channel */ };
 
 // One object of a decoration "cluster", positioned relative to an anchor.
 struct Piece {
